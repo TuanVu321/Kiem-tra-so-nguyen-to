@@ -1,12 +1,20 @@
-let number = parseInt(prompt('Nhap vao so ban muon kiem tra'));
 let count = 0;
-for (i=2;i<= Math.floor(Math.sqrt(number));i++){
-    if(number%i==0){
-        count++
+let html = '';
+
+function check(x) {
+    for (let i = 2; i < x; i++) {
+        if (x % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+for (let i = 2; count < 20;i++) {
+    if (check(i)) {
+        count++;
+        html += i + '<br>';
     }
 }
-if(count==0){
-    alert('Day la so nguyen to');
-}else{
-    alert('Day khong la so nguyen to');
-}
+
+document.getElementById('demo').innerHTML=html;
